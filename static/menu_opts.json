@@ -14,7 +14,7 @@
         {
             "ruta" : "card",
             "icon" : "folder_open",
-            "texto": "Cards - Tarjetas"
+            "texto": "Cards"
         },
         {
             "ruta" : "animatedContainer",
