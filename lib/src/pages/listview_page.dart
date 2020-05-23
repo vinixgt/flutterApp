@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class ListViewPage extends StatefulWidget {
@@ -11,6 +13,7 @@ class _ListViewPageState extends State<ListViewPage> {
 
   List<int> _numbersList = new List();
   int _lastItem = 0;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -20,7 +23,8 @@ class _ListViewPageState extends State<ListViewPage> {
 
     _scrollController.addListener(() {
       if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
-        _addMore();
+        //_addMore();
+        fetchData();
       }
     });
   }
@@ -30,8 +34,19 @@ class _ListViewPageState extends State<ListViewPage> {
     return Scaffold(
       appBar: AppBar(title: Text('List view'),
       ),
-      body: _createList(),  
+      body: Stack(
+        children: <Widget>[
+          _createList(),
+          _createLoading(),
+        ],
+      ),  
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
   }
 
 
@@ -57,5 +72,46 @@ class _ListViewPageState extends State<ListViewPage> {
 
     setState(() {});
   }
+
+
+  Future<Null> fetchData() async{
+    _isLoading = true;
+    setState(() {});
+    final duration = new Duration(seconds: 2);
+    new Timer(duration, responseHttp);
+  }
+
+  void responseHttp() {
+    _isLoading = false;
+
+    _scrollController.animateTo(
+      _scrollController.position.pixels + 150,
+      duration: new Duration(milliseconds: 1500), 
+      curve: Curves.fastOutSlowIn,
+    );
+
+    _addMore();
+  }
+
+  Widget _createLoading() {
+    if(_isLoading) {
+      return Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget> [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              CircularProgressIndicator()
+            ],
+          ),
+          SizedBox(height: 15.0)
+        ]
+      );
+    } else {
+      return Container();
+    }
+  }
+
 
 }
