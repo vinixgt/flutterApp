@@ -60,10 +60,7 @@ class CardPage extends StatelessWidget {
             fit: BoxFit.cover,
              
           ),
-          /* Image(
-            image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/9/91/Oahu_Landscape.jpg'),
-            
-          ), */
+          
           Container(
             padding: EdgeInsets.all(10.0),
             child: Text('No tengo idea de que escribir')

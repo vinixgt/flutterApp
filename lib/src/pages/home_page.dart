@@ -29,10 +29,6 @@ class HomePage extends StatelessWidget {
         );
       },
     );
-
-    // return ListView(
-    //   children: _listaItems(),
-    // );
   }
 
   List<Widget>_listItems(List<dynamic> data, BuildContext context) {
@@ -47,12 +43,6 @@ class HomePage extends StatelessWidget {
         onTap: () {
           
           Navigator.pushNamed(context, element['ruta']);
-
-
-          /* final route = MaterialPageRoute(
-            builder: (context) =>  AlertPage()
-          );
-          Navigator.push(context, route); */
 
         }
 

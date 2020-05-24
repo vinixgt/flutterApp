@@ -68,15 +68,6 @@ class _SliderPageState extends State<SliderPage> {
         });
       }
     );
-    /* return Checkbox(
-      value: _blockCheck, 
-      onChanged: (value) {
-        setState(() {
-          _blockCheck = value;
-          
-        });
-      }
-    ); */
   }
 
   Widget _createSwitch() {
