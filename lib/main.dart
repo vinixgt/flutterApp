@@ -1,11 +1,4 @@
 
-/* 
-Bam
-taza: 1.83% mensual/ 22 anual
-Platinum": 23639.82
-Gold: 12730.56
- */
-
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -31,13 +24,6 @@ class MyApp extends StatelessWidget {
         // ... other locales the app supports
       ],
       title: 'Material App',
-      /* home: Scaffold(
-        appBar: AppBar(
-          title: Text('Components'),
-        ),
-        body: HomePage(),
-
-      ), */
       initialRoute: '/',
       routes: getApplicationRoutes(),
       onGenerateRoute: ( RouteSettings settings ) {
